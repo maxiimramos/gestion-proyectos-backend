@@ -78,6 +78,7 @@ const registrarUsusarios = async (req, res) => {
 const inicioSesionUsuarios = async (req, res) => {
   try {
     const { correo, contraseña } = req.body;
+    // console.log("DATOS", req)
     const user = await db.users.findOne({
       where: {correo}
     });
@@ -86,7 +87,10 @@ const inicioSesionUsuarios = async (req, res) => {
     }
 
     // Verificar contraseña
+
+    console.log("PASSWORDS", contraseña, user.contraseña)
     const validarContraseña = await bcrypt.compare(contraseña, user.contraseña);
+    console.log("VALIDAR ", validarContraseña)
     if (!validarContraseña) {
       return res.status(404).json('Combinación de correo y contraseña incorrecta');
     }
