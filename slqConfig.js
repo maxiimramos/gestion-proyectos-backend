@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 // const User = require("./models/User");
 
-const connection = new Sequelize("gestion_tareas", "root", "password1234", {
-  host: "127.0.0.1",
+const connection = new Sequelize(process.env.MYSQL_DATABASE, process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {
+  host: process.env.MYSQL_HOST,
   dialect: "mysql",
 });
 const db = {};
