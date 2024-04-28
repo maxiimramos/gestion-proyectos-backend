@@ -10,6 +10,11 @@ module.exports = (sequelize, Sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        idUsuario: {
+            type: DataTypes.NUMBER
+
+        },
+
         fechaInicio: {
             type: DataTypes.STRING,
         //    allowNull: false,

@@ -4,7 +4,7 @@ const app = express()
 const {crearProyectos, obtenerProyectos, borrarProyectos} = require('../controllers/proyectos');
 
 app.post('', crearProyectos);
-app.get('', obtenerProyectos);
+app.get('/:userId', obtenerProyectos);
 app.delete('/:id', borrarProyectos);
 
 module.exports = app;
