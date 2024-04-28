@@ -24,6 +24,7 @@ const obtenerProyectos = async (req, res) => {
   const proyectos = await db.proyectos.findAll({ where: { idUsuario: userId }, raw: true });
 
 
+
   const proyectosConEtiqueta = await Promise.all(proyectos.map(async (proyecto) => {
     const tareas = await db.tareas.findAll({ where: { idProyecto: proyecto.id }, raw: true });
     const tareasConEtiqueta = await obtenerEtiquetasDeTareas(tareas);
@@ -55,7 +56,7 @@ const borrarProyectos = async (req, res) => {
       id
     }
   });
-  res.send({ status: "OK", proyecto });
+  res.status(200).send({status:"ok", proyecto})
 }
 
 
